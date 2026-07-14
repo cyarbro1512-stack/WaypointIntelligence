@@ -142,6 +142,48 @@
   }
   .leg-mark span{width:6px;height:6px;background:var(--signal);border-radius:50%;}
 
+  .tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .tier{background:var(--ink);padding:40px 34px;position:relative;}
+  .tier.signature{background:var(--ink-2);}
+  .tier-code{font-size:0.78rem;color:var(--route);display:block;margin-bottom:18px;}
+  .tier h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.5rem;margin-bottom:14px;}
+  .tier > p.tier-desc{color:var(--paper-dim);font-size:0.96rem;margin-bottom:22px;}
+  .tier-includes{list-style:none;}
+  .tier-includes li{
+    color:var(--paper-dim);font-size:0.92rem;padding-left:18px;position:relative;margin-bottom:10px;
+  }
+  .tier-includes li::before{
+    content:"—"; position:absolute; left:0; color:var(--route);
+  }
+  .tier-flag{
+    display:inline-block;
+    font-size:0.72rem;
+    color:var(--signal);
+    border:1px solid var(--signal);
+    padding:3px 9px;
+    border-radius:2px;
+    margin-bottom:18px;
+  }
+  .tier-note{
+    margin-top:36px;
+    padding:20px 24px;
+    border:1px solid var(--line);
+    border-left:2px solid var(--route);
+    font-size:0.92rem;
+    color:var(--paper-dim);
+  }
+  .tier-note strong{color:var(--paper);}
+
+  .inside-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:10px 48px;
+  }
+  .inside-grid li{
+    color:var(--paper-dim);font-size:0.94rem;list-style:none;
+    padding:10px 0;border-bottom:1px solid var(--line);
+  }
+  .inside-grid li strong{color:var(--paper);font-weight:500;}
+
   .log{background:var(--ink-2);}
   .log-inner{max-width:760px;}
   .log-row{
@@ -166,6 +208,8 @@
 
   @media(max-width:820px){
     .legs{grid-template-columns:1fr;}
+    .tiers{grid-template-columns:1fr;}
+    .inside-grid{grid-template-columns:1fr;}
     .navlinks{display:none;}
     .hero{padding:90px 24px 70px;}
     section{padding:64px 24px;}
@@ -202,12 +246,12 @@
     <g class="route-marker"><circle cx="560" cy="400" r="5"/><text x="500" y="424">EN ROUTE</text></g>
   </svg>
   <div class="hero-inner">
-    <div class="eyebrow mono">Travel Intelligence Platform</div>
+    <div class="eyebrow mono">Travel Intelligence Reports</div>
     <h1>Everything you need to know, <em>before you go.</em></h1>
-    <p class="sub">Waypoint brings trip planning, destination safety intelligence, and price tracking into one place — so you can plan with confidence instead of forty open browser tabs.</p>
+    <p class="sub">A good trip starts before you ever pack a bag. We put together a real intelligence briefing on your destination — the safety picture, current scams, health and entry details, and the things that actually matter once you land. Whether you're headed out for a vacation or a work trip, the goal is the same: you should feel like you know what to expect, not like you're guessing.</p>
     <div class="cta-row">
       <a href="#contact" class="btn">Join the waitlist</a>
-      <a href="#pillars" class="btn-ghost">See what it does</a>
+      <a href="#pillars" class="btn-ghost">See the reports</a>
     </div>
   </div>
 </section>
@@ -215,30 +259,59 @@
 <section id="pillars">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker mono">The route</div>
-      <h2>Three legs, one trip.</h2>
-      <p>Waypoint is built around the three things that actually change how a trip goes — where you're headed, what to watch out for, and what it should cost.</p>
+      <div class="kicker mono">The reports</div>
+      <h2>Two tiers, one standard of intelligence.</h2>
+      <p>Every Waypoint report is built from the same research, at the same standard of care. The tiers differ in depth and freshness — never in access to the safety information that matters most.</p>
     </div>
-    <div class="legs">
-      <div class="leg">
-        <div class="leg-mark"><span></span></div>
-        <span class="leg-code mono">WPT · PLAN</span>
-        <h3>Plan smarter</h3>
-        <p>Personalized recommendations and itinerary guidance built around how you actually like to travel, not a generic top-10 list.</p>
+    <div class="tiers">
+      <div class="tier">
+        <span class="tier-code mono">WPT · ESSENTIAL</span>
+        <h3>Essential Intelligence Briefing</h3>
+        <p class="tier-desc">The core briefing: safety, scams, transportation, weather, and health, plus entry requirements, money, and communications guidance — with a city-level risk breakdown and any relevant personalization.</p>
+        <ul class="tier-includes">
+          <li>Security, Scams &amp; Current Threats, Transportation, Weather, Health &amp; Medical</li>
+          <li>Entry requirements, money &amp; payments, communications</li>
+          <li>City-level risk breakdown</li>
+          <li>Personalized to what you tell us about your trip</li>
+        </ul>
       </div>
-      <div class="leg">
-        <div class="leg-mark"><span></span></div>
-        <span class="leg-code mono">WPT · ALERT</span>
-        <h3>Stay safe</h3>
-        <p>Destination-specific scam and safety intelligence, surfaced before you land — not after something's already gone wrong.</p>
-      </div>
-      <div class="leg">
-        <div class="leg-mark"><span></span></div>
-        <span class="leg-code mono">WPT · TRACK</span>
-        <h3>Catch the deal</h3>
-        <p>Price and deal intelligence that tells you whether now is actually the right time to book — flights, stays, and beyond.</p>
+      <div class="tier signature">
+        <span class="tier-flag mono">Stays current until you leave</span>
+        <span class="tier-code mono">WPT · SIGNATURE</span>
+        <h3>Signature Intelligence Report</h3>
+        <p class="tier-desc">Everything in Essential, taken deeper — plus neighborhood-level detail, local laws and customs, and a pre-departure refresh that re-checks time-sensitive sections closer to your travel date.</p>
+        <ul class="tier-includes">
+          <li>Everything in Essential, at deep-dive depth with broader source cross-verification</li>
+          <li>Neighborhood-level risk breakdown</li>
+          <li>Cultural Considerations &amp; Local Laws</li>
+          <li>Pre-departure refresh before you fly</li>
+        </ul>
       </div>
     </div>
+    <div class="tier-note">
+      <strong>A cheaper report never means a less-safe traveler.</strong> Both tiers include the full safety picture — Signature adds depth, granularity, and a refresh closer to departure, not information the Essential tier withholds.
+    </div>
+  </div>
+</section>
+
+<section id="inside">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker mono">Inside every report</div>
+      <h2>What you actually get.</h2>
+      <p>Same structure every time, so you always know where to look — only the depth changes by tier.</p>
+    </div>
+    <ul class="inside-grid">
+      <li><strong>Situation Summary</strong> — one paragraph, plus a scannable risk-at-a-glance table</li>
+      <li><strong>Neighborhood Risk Breakdown</strong> — a genuine differentiator, not a top-level summary</li>
+      <li><strong>Safety &amp; Security</strong> — the current picture on the ground</li>
+      <li><strong>Scams &amp; Current Threats</strong> — what's actually being reported now</li>
+      <li><strong>Transportation, Weather, Health &amp; Medical</strong> — practical, current guidance</li>
+      <li><strong>Entry Requirements, Money &amp; Payments, Communications</strong> — the logistics</li>
+      <li><strong>Personalized section</strong> — for family travel, solo travel, mobility needs, and more</li>
+      <li><strong>Emergency Planning card</strong> — a standalone quick-reference</li>
+      <li><strong>Full source log</strong> — every finding labeled by confidence and sourced</li>
+    </ul>
   </div>
 </section>
 
@@ -270,7 +343,7 @@
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 L20 20 L12 16 L4 20 Z" stroke="#E8A33D" stroke-width="1.4" stroke-linejoin="round"/></svg>
         Waypoint
       </div>
-      <p>Waypoint Travel Intelligence is a travel planning, safety, and price intelligence platform, built to help travelers make better decisions before they go.</p>
+      <p><strong>Waypoint Travel Intelligence</strong> produces destination intelligence reports for travelers — the Essential Intelligence Briefing and the Signature Intelligence Report — covering current safety conditions, scams, health and entry requirements, and the practical details worth knowing before you land.</p>
     </div>
     <div class="footer-cols">
       <div class="footer-col">
@@ -280,8 +353,8 @@
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
-        <a href="#">Terms of Service</a>
-        <a href="#">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
       </div>
     </div>
   </div>
